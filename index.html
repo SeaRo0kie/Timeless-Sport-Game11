@@ -3,96 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>图片滑动效果</title>
+    <title>运动会报名</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            height: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            flex-direction: column;
+            background-color: #f0f0f0;
         }
-        .slider {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            overflow: hidden;
+        img {
+            width: 100%; /* 图片横向铺满屏幕 */
+            height: auto; /* 保持纵横比 */
+            display: block; /* 去除图片之间的空隙 */
+            margin: 0; /* 去掉图片之间的默认外边距 */
+            padding: 0;
         }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slides img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .navigation {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-        .nav-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
+        .signup-button {
+            display: inline-block;
+            padding: 15px 30px;
             font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
         }
-        .nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
+        .signup-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <div class="slider">
-        <div class="slides">
-            <!-- 第一张图片 -->
-            <img src="https://cuicancan.top/ydh.jpg" alt="宣传图片1">
-            <!-- 第二张图片 -->
-            <img src="https://cuicancan.top/sg.jpg" alt="宣传图片2">
-            <!-- 第三张图片 -->
-            <img src="https://cuicancan.top/bm.jpg" alt="宣传图片3">
-        </div>
-        <!-- 左右滑动按钮 -->
-        <div class="navigation">
-            <button class="nav-button" id="prevBtn">‹</button>
-            <button class="nav-button" id="nextBtn">›</button>
-        </div>
-    </div>
+    <!-- 第一张宣传图片 -->
+    <img src="http://gxwhy.net/js/k/20241018090602.jpg" alt="宣传图片1">
 
-    <script>
-        const slides = document.querySelector('.slides');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        let currentIndex = 0;
-        const totalSlides = document.querySelectorAll('.slides img').length;  // 更新为3张图片
+    <!-- 第二张宣传图片 -->
+    <img src="http://gxwhy.net/js/k/20241018090604.jpg" alt="宣传图片2">
 
-        // 下一张图片
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalSlides;  // 使用图片总数控制滑动
-            updateSlider();
-        });
+    <!-- 第三张宣传图片 -->
+    <img src="https://cuicancan.top/bm.jpg" alt="宣传图片3">
 
-        // 上一张图片
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;  // 使用图片总数控制滑动
-            updateSlider();
-        });
-
-        function updateSlider() {
-            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
-        }
-    </script>
+    <!-- 报名按钮 -->
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=aiFm1EPGSkOcLgV0SMF8vlph6aeSzZNJjMJSEpNjJ4ZUQ1dTSTNMSjExSVRUU0lLQ1VPSEVIT1IwVy4u&origin=QRCode" class="signup-button" target="_blank">点击报名</a>
 
 </body>
 </html>
